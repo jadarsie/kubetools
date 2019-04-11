@@ -160,8 +160,8 @@ touch $LOG_FILENAME
     # ----------------------------------------------------------------------------------------
     # Launch Sonobuoy
     
-    #ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; ./sonobuoy run --mode quick;"
-    ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; ./sonobuoy run;"
+    ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; ./sonobuoy run --mode quick;"
+    #ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; ./sonobuoy run;"
     
     result="pass"
     printf '{"result":"%s"}\n' "$result" > $OUTPUT_SUMMARYFILE
