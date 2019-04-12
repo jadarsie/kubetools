@@ -65,6 +65,9 @@ done
 
 if [ $isHelmReady -ne 1 ]; then
     echo  -e "${RED}Validation failed. Helm initial failed.${NC}"
+    exit 1
 fi
 
 echo -e "${GREEN}Validation Pass! Helm has been initialed.${NC}"
+exit 0
+
