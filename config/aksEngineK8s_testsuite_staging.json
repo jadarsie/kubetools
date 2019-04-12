@@ -6,7 +6,12 @@
 		"dvmLogFilePath": "/var/log/azure/deploy-script-dvm.log",
 		"aksEngine": {
 			"githubRepo": "msazurestackworkloads/aks-engine",
-			"githubBranch": "azsmaster"
+			"githubBranch": "next",
+			"apiModel":"https://raw.githubusercontent.com/honcao/aks-engine/e2e/examples/kubernetes-azure-stack.json",
+			"upgradeVersion": "1.12",
+			"nodeCount": 5,
+			"upgrade": "true",
+			"scale": "true"
 		},
 		"minNumberofAzsNodes": 1,
 		"removeDeployment": "true",
