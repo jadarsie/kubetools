@@ -109,7 +109,7 @@ touch $LOG_FILENAME
     fi
     
     # Check Sonobuoy runs are in progress.
-    # We will timeout after 3 hours just tom kase sure we don't
+    # We will timeout after 3 hours just to make sure we don't end up in infinite loop.
     i=0
     while [ $i -lt 180 ];do
         runStatus=$(ssh -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; ./sonobuoy status | grep running || true")
