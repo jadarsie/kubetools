@@ -109,20 +109,28 @@ touch $LOG_FILENAME
     fi
     
     # Check Sonobuoy runs are in progress.
-    while true
-    do
+    # We will timeout after 3 hours just tom kase sure we don't
+    i=0
+    while [ $i -lt 180 ];do
         runStatus=$(ssh -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; ./sonobuoy status | grep running || true")
         log_level -i "Status of the run is: $runStatus"
         if [ -z "$runStatus" ]; then
             break
         else
             log_level -i "Runs are still in progress. Will retry again to see if it is still running."
-            sleep 30
+            sleep 60s
         fi
+        let i=i+1
     done
     
-    runStatus=$(ssh -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; ./sonobuoy status || true")
-    log_level -i "Final runs status is $runStatus."
+    runStatus=$(ssh -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; ./sonobuoy status | grep running || true")
+    log_level -i "Runs status after  $runStatus."
+    if [ -z "$runStatus" ]; then
+        log_level -i "Runs got over within given time. Will retry again to see if it is still running."
+    else
+        printf '{"result":"%s","error":"%s"}\n' "failed" "Sonobuoy deployment failed or sonobuoy pod not reached running state." > $OUTPUT_SUMMARYFILE
+        exit 1
+    fi
     # Retrieve test case details.
     
     i=0
@@ -138,7 +146,7 @@ touch $LOG_FILENAME
         
         let i=i+1
     done
-
+    
     if [ -z "$tarfile" ]; then
         log_level -e "No tar file got created. Sonobuoy retrieve command failed."
         result="failed"
