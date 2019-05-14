@@ -1,0 +1,55 @@
+{
+	"clusterARMTemplate": {
+		"githubRepo": "jadarsie/azurestack-gallery",
+		"githubBranch": "distro-param",
+		"folderPath": "kubernetes/template/DeploymentTemplates",
+		"dvmLogFilePath": "/var/log/azure/deploy-script-dvm.log",
+		"minNumberofAzsNodes": 1,
+		"removeDeployment": "false",
+		"deploymentMatrix": [
+			{
+				"agentPoolProfileCount": 3,
+				"agentPoolProfilevmSize": "Standard_D2_v2",
+				"masterPoolProfileCount": 3,
+				"masterPoolProfilevmSize": "Standard_D2_v2",
+				"storageProfile": "ManagedDisk",
+				"hyperkubeImagesVersion": "1.11",
+				"aksEngine": {
+					"githubRepo": "jadarsie/azurestack-gallery",
+					"githubBranch": "distro-param",
+					"releaseFileName": "aks-engine",
+					"apiModelPrefix": "azurestack-kubernetes",
+					"nodesDistro": "vhd"
+				}
+			}
+		]
+	},
+	"diagnosis": {
+		"githubRepo": "msazurestackworkloads/azurestack-gallery",
+		"githubBranch": "master",
+		"folderPath": "diagnosis",
+		"filename": "getkuberneteslogs.sh"
+	},
+	"testSuite": {
+		"githubRepo": "msazurestackworkloads/kubetools",
+		"githubBranch": "master",
+		"applications": [
+			{
+				"name": "sonobuoy",
+				"junitFile": "junit_01.xml",
+				"deployment": {
+					"scriptName": "deploy.sh",
+					"summaryFile": "deploy.json"
+				},
+				"validation": {
+					"scriptName": "validate.sh",
+					"summaryFile": "validate.json"
+				},
+				"cleanup": {
+					"scriptName": "cleanup.sh",
+					"summaryFile": "cleanup.json"
+				}
+			}
+		]
+	}
+}
