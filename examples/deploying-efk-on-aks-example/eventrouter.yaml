@@ -47,7 +47,7 @@ data:
       "sink": "http",
       "httpSinkUrl": "http://127.0.0.1:8080",
       "httpSinkBufferSize": 1500,
-      "httpSinkDiscardMessages": true,
+      "httpSinkDiscardMessages": true
     }
 kind: ConfigMap
 metadata:
