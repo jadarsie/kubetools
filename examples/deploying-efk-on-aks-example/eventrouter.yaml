@@ -45,7 +45,7 @@ data:
   config.json: |- 
     {
       "sink": "http",
-      "httpSinkUrl": "http://127.0.0.1:8080",
+      "httpSinkUrl": "http://127.0.0.1:5170",
       "httpSinkBufferSize": 1500,
       "httpSinkDiscardMessages": true
     }
