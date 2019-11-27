@@ -24,6 +24,7 @@
 				"windowsAgentPoolProfileVMSize": "Standard_D2_v2",
 				"windowsNodeDistroVersion": "17763.805.191024",
 				"windowsNodeDistroSKU": "2019-datacenter-core-smalldisk",
+				"containerRuntime": "docker",
 				"aksEngine": {
 					"aksEngineBaseURL": "https://github.com/Azure/aks-engine/releases/download",
 					"aksEngineReleaseVersion": "v0.43.1",
