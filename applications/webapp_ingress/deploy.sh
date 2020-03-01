@@ -174,7 +174,7 @@ touch $LOG_FILENAME
         let i=i+1
     done
     
-    ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "helm repo add azure-samples https://azure-samples.github.io/helm-charts/"
+    ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "helm repo add azure-samples https://raw.githubusercontent.com/jadarsie/helm-charts/master/docs/"
     i=1
     ingressCount=0
     while [ $i -le $MAX_INGRESS_SERVICE_COUNT ]; do
