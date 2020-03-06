@@ -93,8 +93,8 @@ touch $LOG_FILENAME
     ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "sudo kubectl get all -o wide"
 
     wordPressDeploymentName=$(ssh -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "helm ls -d -r | grep -i 'DEPLOYED\(.*\)wordpress' | grep -Eo '^[a-z,-]+'")
-    mariadbPodstatus=$(ssh -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "sudo kubectl get pods --selector app=mariadb | grep 'Running'")
-    wdpressPodstatus=$(ssh -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "kubectl get pods --selector app.kubernetes.io/instance=${wordPressDeploymentName} | grep 'Running'")
+    mariadbPodstatus=$(ssh -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "sudo kubectl get pods --selector app=mariadb | grep '1/1'")
+    wdpressPodstatus=$(ssh -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "kubectl get pods --selector app.kubernetes.io/instance=${wordPressDeploymentName} | grep '1/1'")
     failedPods=""
     if [ -z "$mariadbPodstatus" ]; then
         failedPods="mariadb"
