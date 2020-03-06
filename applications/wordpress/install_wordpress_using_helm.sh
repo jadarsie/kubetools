@@ -32,7 +32,7 @@ echo "Install wordpress..."
 helm install stable/wordpress --set wordpressSkipInstall=false
 
 echo "Done with installation, checking release status..."
-wpRelease=$(helm ls -d -r | grep 'DEPLOYED\(.*\)wordpress' | grep -Eo '^[a-z,-]+')
+wpRelease=$(helm ls -d -r | grep -i 'DEPLOYED\(.*\)wordpress' | grep -Eo '^[a-z,-]+')
 
 if [[ -z $wpRelease ]]; then
     echo  -e "${RED}Validation failed. Helm release for wordpress not found.${NC}"
@@ -45,8 +45,8 @@ fi
 echo "Monitoring pods status..."
 i=0
 while [ $i -lt 20 ];do
-    mariadbPodstatus="$(sudo kubectl get pods --selector app=mariadb | grep 'Running')"
-    wdpressPodstatus="$(sudo kubectl get pods --selector app=${wpRelease}-wordpress | grep 'Running')"
+    mariadbPodstatus="$(kubectl get pods --selector app=mariadb | grep 'Running')"
+    wdpressPodstatus="$(kubectl get pods --selector app.kubernetes.io/instance=${wpRelease} | grep 'Running')"
     
     if [[ -z "$mariadbPodstatus" ]] || [[ -z "$wdpressPodstatus" ]]; then
         echo "Tracking pods status of mariadb and wordpress..."
