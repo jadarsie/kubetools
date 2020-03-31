@@ -5,8 +5,8 @@
 		"folderPath": "AKSEngine-E2E/Template",
 		"dvmLogFilePath": "/var/log/azure/deploy-script-dvm.log",
 		"aksEngine": {
-			"githubRepo": "Azure/aks-engine",
-			"githubBranch": "master",
+			"githubRepo": "jadarsie/aks-engine",
+			"githubBranch": "release-44a35c0",
 			"apiModel": "https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/aks-e2e-release/AKSEngine-E2E/Template/azurestack_template.json",
 			"upgradeVersion": "1.16.7",
 			"nodeCount": 5,

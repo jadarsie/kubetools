@@ -36,7 +36,7 @@
 				},
 				"aksEngine": {
 					"aksEngineBaseURL": "https://github.com/jadarsie/aks-engine/releases/download",
-					"aksEngineReleaseVersion": "0859601e2",
+					"aksEngineReleaseVersion": "44a35c0",
 					"clusterDefinitionFileName": "clusterDefinition.json",
 					"kubernetesImageBase": "mcr.microsoft.com/k8s/azurestack/core/"
 				}
@@ -70,7 +70,7 @@
 				},
 				"aksEngine": {
 					"aksEngineBaseURL": "https://github.com/jadarsie/aks-engine/releases/download",
-					"aksEngineReleaseVersion": "0859601e2",
+					"aksEngineReleaseVersion": "44a35c0",
 					"clusterDefinitionFileName": "clusterDefinition.json",
 					"kubernetesImageBase": "mcr.microsoft.com/k8s/azurestack/core/"
 				}
