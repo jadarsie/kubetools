@@ -34,7 +34,13 @@ rename_and_deploy()
         ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; source $COMMON_SCRIPT_FILENAME; rename_string_infile $TEST_DIRECTORY/$newDeploymentFileName $previousName $currentName"
         ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; source $COMMON_SCRIPT_FILENAME; rename_string_infile $TEST_DIRECTORY/$newDeploymentFileName $previousServiceName $currentServiceName"
         ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; source $COMMON_SCRIPT_FILENAME; rename_string_infile $TEST_DIRECTORY/$newDeploymentFileName $previousAppName $currentAppName"
-        #deploy
+        # deploy
+
+        # This is the important line
+        # This happens 50 times
+        # deploy_application 
+        # => kubectl apply -f applications/common/deploymentConfig/linux/nginx_*.yaml 
+        # => check_Kubernetes_events "ScalingReplicaSet" or "SuccessfulAttachVolume"
         ssh -t -i $IDENTITY_FILE $USER_NAME@$MASTER_IP "cd $TEST_DIRECTORY; source $COMMON_SCRIPT_FILENAME; deploy_application $newDeploymentFileName $endEventName $currentName $kind $replicaCount"
 		
 		if [[ $i -lt 3 ]]; then

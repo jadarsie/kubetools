@@ -5,7 +5,7 @@
 		"folderPath": "kubernetes/template/DeploymentTemplates",
 		"dvmLogFilePath": "/var/log/azure/deploy-script-dvm.log",
 		"minNumberofAzsNodes": 4,
-		"removeDeployment": "true",
+		"removeDeployment": "false",
 		"deploymentMatrix": [
 			{
 				"agentPoolProfileCount": 3,
@@ -14,9 +14,9 @@
 				"masterPoolProfilevmSize": "Standard_D2_v2",
 				"storageProfile": "ManagedDisk",
 				"hyperkubeImagesVersion": "1.15",
-				"nodeDistro": "ubuntu",
+				"nodeDistro": "aks-ubuntu-16.04",
 				"linuxNodeDistroVersion": "2019.10.24",
-				"linuxNodeDistroSKU": "ubuntu",
+				"linuxNodeDistroSKU": "aks-ubuntu-1604-201910",
 				"networkPlugin": "kubenet",
 				"availabilityProfile": "AvailabilitySet",
 				"enableTillerAddOn": "false",
@@ -26,8 +26,8 @@
 				"windowsNodeDistroSKU": "2019-datacenter-core-smalldisk",
 				"containerRuntime": "docker",
 				"aksEngine": {
-					"aksEngineBaseURL": "https://github.com/jadarsie/aks-engine/releases/download",
-					"aksEngineReleaseVersion": "44a35c0",
+					"aksEngineBaseURL": "https://github.com/Azure/aks-engine/releases/download",
+					"aksEngineReleaseVersion": "v0.43.1",
 					"clusterDefinitionFileName": "clusterDefinition.json",
 					"kubernetesImageBase": "mcr.microsoft.com/k8s/azurestack/core/"
 				}
@@ -45,22 +45,6 @@
 		"githubBranch": "master",
 		"applications": [
 			{
-				"name": "sonobuoy",
-				"junitFile": "junit_01.xml",
-				"deployment": {
-					"scriptName": "deploy.sh",
-					"summaryFile": "deploy.json"
-				},
-				"validation": {
-					"scriptName": "validate.sh",
-					"summaryFile": "validate.json"
-				},
-				"cleanup": {
-					"scriptName": "cleanup.sh",
-					"summaryFile": "cleanup.json"
-				}
-			},
-			{
 				"name": "tomcat",
 				"deployment": {
 					"scriptName": "deploy.sh",
@@ -69,52 +53,6 @@
 				"validation": {
 					"scriptName": "validate.sh",
 					"summaryFile": "validate.json"
-				}
-			},
-			{
-				"name": "wordpress",
-				"deployment": {
-					"scriptName": "deploy.sh",
-					"summaryFile": "deploy.json"
-				},
-				"validation": {
-					"scriptName": "validate.sh",
-					"summaryFile": "validate.json"
-				},
-				"cleanup": {
-					"scriptName": "cleanup.sh",
-					"summaryFile": "cleanup.json"
-				}
-			},
-			{
-				"name": "webapp_ingress",
-				"deployment": {
-					"scriptName": "deploy.sh",
-					"summaryFile": "deploy.json"
-				},
-				"validation": {
-					"scriptName": "validate.sh",
-					"summaryFile": "validate.json"
-				},
-				"cleanup": {
-					"scriptName": "cleanup.sh",
-					"summaryFile": "cleanup.json"
-				}
-			},
-			{
-				"name": "hetrogeneous-app",
-				"deploymentVMType": "dvm",
-				"deployment": {
-					"scriptName": "deploy.sh",
-					"summaryFile": "deploy.json"
-				},
-				"validation": {
-					"scriptName": "validate.sh",
-					"summaryFile": "validate.json"
-				},
-				"cleanup": {
-					"scriptName": "cleanup.sh",
-					"summaryFile": "cleanup.json"
 				}
 			}
 		]
