@@ -40,40 +40,6 @@
 					"clusterDefinitionFileName": "clusterDefinition.json",
 					"kubernetesImageBase": "mcr.microsoft.com/k8s/azurestack/core/"
 				}
-			},
-			{
-				"agentPoolProfileCount": 24,
-				"agentPoolProfilevmSize": "Standard_D2_v2",
-				"masterPoolProfileCount": 3,
-				"masterPoolProfilevmSize": "Standard_D2_v2",
-				"storageProfile": "ManagedDisk",
-				"hyperkubeImagesVersion": "1.16",
-				"nodeDistro": "ubuntu",
-				"linuxNodeDistroVersion": "2019.10.24",
-				"linuxNodeDistroSKU": "ubuntu",
-				"networkPlugin": "kubenet",
-				"availabilityProfile": "AvailabilitySet",
-				"enableTillerAddOn": "false",
-				"windowsAgentPoolProfileCount": "0",
-				"windowsAgentPoolProfileVMSize": "Standard_D2_v2",
-				"windowsNodeDistroVersion": "17763.805.191024",
-				"windowsNodeDistroSKU": "2019-datacenter-core-smalldisk",
-				"containerRuntime": "docker",
-				"customVNET": {
-					"TemplateRepo": "msazurestackworkloads/kubetools",
-					"TemplateBranch": "master",
-					"folderPath": "customVnet/Template",
-					"virtualNetworkName": "k8s-customvnet",
-					"masterSubnetName": "k8s-masterSubnet",
-					"agentSubnetName": "k8s-agentSubnet",
-					"firstConsecutiveStaticIP": "10.100.0.5"
-				},
-				"aksEngine": {
-					"aksEngineBaseURL": "https://github.com/jadarsie/aks-engine/releases/download",
-					"aksEngineReleaseVersion": "44a35c0",
-					"clusterDefinitionFileName": "clusterDefinition.json",
-					"kubernetesImageBase": "mcr.microsoft.com/k8s/azurestack/core/"
-				}
 			}
 		]
 	},
