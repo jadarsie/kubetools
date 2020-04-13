@@ -1,27 +1,27 @@
 {
 	"clusterARMTemplate": {
 		"githubRepo": "msazurestackworkloads/azurestack-gallery",
-		"githubBranch": "aks-e2e-release",
+		"githubBranch": "master",
 		"folderPath": "AKSEngine-E2E/Template",
 		"dvmLogFilePath": "/var/log/azure/deploy-script-dvm.log",
 		"aksEngine": {
-			"githubRepo": "jadarsie/aks-engine",
-			"githubBranch": "release-44a35c0",
-			"apiModel": "https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/aks-e2e-release/AKSEngine-E2E/Template/azurestack_template.json",
-			"upgradeVersion": "1.16.7",
+			"githubRepo": "azure/aks-engine",
+			"githubBranch": "v0.48.0",
+			"apiModel": "https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/AKSEngine-E2E/Template/azurestack_template.json",
+			"upgradeVersion": "1.15.10",
 			"nodeCount": 5,
 			"upgrade": "true",
 			"scale": "true"
 		},
 		"ScaleandUpgrade": {
 			"githubRepo": "msazurestackworkloads/azurestack-gallery",
-			"githubBranch": "aks-e2e-release",
+			"githubBranch": "master",
 			"folderPath": "AKSEngine-E2E/AksTest-Scripts",
 			"fileName": "runAksScript.sh",
 			"scaleScript": "aksEngineScale.sh",
 			"UpgradeScript": "aksEngineUpgrade.sh"
 		},
-		"minNumberofAzsNodes": 1,
+		"minNumberofAzsNodes": 4,
 		"removeDeployment": "true",
 		"deploymentMatrix": [
 			{
@@ -30,13 +30,18 @@
 				"masterPoolProfileCount": 1,
 				"masterPoolProfilevmSize": "Standard_D2_v2",
 				"storageProfile": "ManagedDisk",
-				"hyperkubeImagesVersion": "1.15",
+				"hyperkubeImagesVersion": "1.14",
+				"nodeDistro": "aks-ubuntu-16.04",
+				"linuxNodeDistroVersion": "2020.03.19",
+				"linuxNodeDistroSKU": "aks-engine-ubuntu-1604-202003",
 				"networkPlugin": "kubenet",
 				"availabilityProfile": "AvailabilitySet",
+				"enableTillerAddOn": "false",
 				"windowsAgentPoolProfileCount": "0",
 				"windowsAgentPoolProfileVMSize": "Standard_D2_v2",
 				"windowsNodeDistroVersion": "17763.805.191024",
-				"windowsNodeDistroSKU": "2019-datacenter-core-smalldisk"
+				"windowsNodeDistroSKU": "2019-datacenter-core-smalldisk",
+				"containerRuntime": "docker"
 			}
 		]
 	},
