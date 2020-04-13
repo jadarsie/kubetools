@@ -14,22 +14,22 @@
 				"masterPoolProfilevmSize": "Standard_D2_v2",
 				"storageProfile": "ManagedDisk",
 				"hyperkubeImagesVersion": "1.15",
-				"nodeDistro": "ubuntu",
-				"linuxNodeDistroVersion": "2019.10.24",
-				"linuxNodeDistroSKU": "ubuntu",
+				"nodeDistro": "aks-ubuntu-16.04",
+				"linuxNodeDistroVersion": "2020.03.19",
+				"linuxNodeDistroSKU": "aks-engine-ubuntu-1604-202003",
 				"networkPlugin": "kubenet",
-				"enableTillerAddOn": "false",
 				"availabilityProfile": "AvailabilitySet",
+				"enableTillerAddOn": "false",
 				"windowsAgentPoolProfileCount": "0",
 				"windowsAgentPoolProfileVMSize": "Standard_D2_v2",
 				"windowsNodeDistroVersion": "17763.805.191024",
 				"windowsNodeDistroSKU": "2019-datacenter-core-smalldisk",
 				"containerRuntime": "docker",
 				"aksEngine": {
-					"aksEngineBaseURL": "https://github.com/jadarsie/aks-engine/releases/download",
-					"aksEngineReleaseVersion": "44a35c0",
+					"aksEngineBaseURL": "https://github.com/azure/aks-engine/releases/download",
+					"aksEngineReleaseVersion": "v0.48.0",
 					"clusterDefinitionFileName": "clusterDefinition.json",
-					"kubernetesImageBase": "mcr.microsoft.com/k8s/azurestack/core/"
+					"kubernetesImageBase": ""
 				}
 			}
 		]

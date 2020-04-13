@@ -13,10 +13,10 @@
 				"masterPoolProfileCount": 3,
 				"masterPoolProfilevmSize": "Standard_D2_v2",
 				"storageProfile": "ManagedDisk",
-				"hyperkubeImagesVersion": "1.15",
-				"nodeDistro": "ubuntu",
-				"linuxNodeDistroVersion": "2019.10.24",
-				"linuxNodeDistroSKU": "ubuntu",
+				"hyperkubeImagesVersion": "1.14",
+				"nodeDistro": "aks-ubuntu-16.04",
+				"linuxNodeDistroVersion": "2020.03.19",
+				"linuxNodeDistroSKU": "aks-engine-ubuntu-1604-202003",
 				"networkPlugin": "kubenet",
 				"availabilityProfile": "AvailabilitySet",
 				"enableTillerAddOn": "false",
@@ -25,6 +25,12 @@
 				"windowsNodeDistroVersion": "17763.805.191024",
 				"windowsNodeDistroSKU": "2019-datacenter-core-smalldisk",
 				"containerRuntime": "docker",
+				"aksEngine": {
+					"aksEngineBaseURL": "https://github.com/azure/aks-engine/releases/download",
+					"aksEngineReleaseVersion": "v0.48.0",
+					"clusterDefinitionFileName": "clusterDefinition.json",
+					"kubernetesImageBase": ""
+				},
 				"customVNET": {
 					"TemplateRepo": "msazurestackworkloads/kubetools",
 					"TemplateBranch": "master",
@@ -33,12 +39,6 @@
 					"masterSubnetName": "k8s-masterSubnet",
 					"agentSubnetName": "k8s-agentSubnet",
 					"firstConsecutiveStaticIP": "10.100.0.5"
-				},
-				"aksEngine": {
-					"aksEngineBaseURL": "https://github.com/jadarsie/aks-engine/releases/download",
-					"aksEngineReleaseVersion": "44a35c0",
-					"clusterDefinitionFileName": "clusterDefinition.json",
-					"kubernetesImageBase": "mcr.microsoft.com/k8s/azurestack/core/"
 				}
 			}
 		]
@@ -53,7 +53,7 @@
 		"githubRepo": "msazurestackworkloads/kubetools",
 		"githubBranch": "master",
 		"folderPath": "operations/aksEngine",
-		"upgradeVersion": "1.15.4"
+		"upgradeVersion": "1.15.10"
 	},
 	"testSuite": {
 		"githubRepo": "msazurestackworkloads/kubetools",
